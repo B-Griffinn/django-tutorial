@@ -1,5 +1,6 @@
 from django.db import models
 from uuid import uuid4
+from django.contrib.auth.models import User
 
 # Create your models here.
 class Note(models.Model):
@@ -10,3 +11,6 @@ class Note(models.Model):
     # Adding New fields for the Migrations II videos
     created_at = models.DateTimeField(auto_now_add=True) # Returns True when the argument x is true, False otherwise.
     last_modified = models.DateTimeField(auto_now=True) #Returns True when the argument x is true, False otherwise.
+
+class PersonalNote(Note):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
