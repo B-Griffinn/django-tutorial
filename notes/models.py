@@ -6,3 +6,7 @@ class Note(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid4, editable=False ) # "default" generates random uuid when a new note is created
     title = models.CharField(max_length=200)    # allow our note title to only be 200 chars long                  
     content = models.TextField(blank=True)      # our body of the note is a text field with no restrictions
+
+    # Adding New fields for the Migrations II videos
+    created_at = models.DateTimeField(auto_now_add=True) # Returns True when the argument x is true, False otherwise.
+    last_modified = models.DateTimeField(auto_now=True) #Returns True when the argument x is true, False otherwise.
